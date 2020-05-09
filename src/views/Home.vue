@@ -1,29 +1,30 @@
 <template>
-  <div class="home container">
-      <posts :posts="posts" />
+  <div class="container">
+      <products :products="products"/>
   </div>
 </template>
 
 <script>
 import axios from "axios"
-import Posts from "../components/Posts"
+import Products from "../components/Products" 
 export default {
-  name: 'Home',
-  components: {
-    Posts
-  },
-  data(){
-      return{
-          posts:[]
-      }
-  },
+    name: "Home",
+    components:{
+        Products
+    },
     created(){
         axios.get("https://jsonplaceholder.typicode.com/photos?_limit=5")
-        .then(res => this.posts = res.data)
+        .then(res => this.products = res.data)
         .catch(err => console.log(err))
     },
-    methods:{
-
-    }  
+    data(){
+        return{
+            products:[]
+        }
+    }
 }
 </script>
+
+<style>
+
+</style>
