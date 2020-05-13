@@ -3,7 +3,7 @@
         <div class="card">
             <img class="card-img-top" :src="product.url" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">{{product.title}}</h5>
+                <router-link :to="{name: 'productPage', params: {id: product.id} }"><h5 class="card-title">{{product.title}}</h5></router-link>
             </div>
         </div>
   </div>
